@@ -1,81 +1,767 @@
 <!DOCTYPE html>
-<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Hello Kids – Little Legends</title>
-<style>
-  :root {
-    --brand-blue: #123a94;
-    --brand-blue-deep: #0d2a6a;
-    --brand-gold: #d4af5a;
-    --brand-ivory: #f8f6f1;
-    --brand-white: #ffffff;
-    --brand-text: #1b1b1b;
-    --brand-border: rgba(18, 58, 148, 0.14);
-  }
-  * { box-sizing: border-box; }
-  body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #ffffff; color: var(--brand-text); }
-  a { color: inherit; text-decoration: none; }
-  .site-header {
-    background: linear-gradient(180deg, var(--brand-ivory) 0%, var(--brand-white) 100%);
-    border-bottom: 1px solid var(--brand-border);
-    box-shadow: 0 2px 10px rgba(13, 42, 106, 0.06);
-  }
-  .header-inner {
-    max-width: 1200px; margin: 0 auto; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px;
-  }
-  .brand-wrap { display: flex; align-items: center; gap: 14px; min-width: 0; }
-  .brand-logo {
-    width: 78px; height: 78px; object-fit: contain; flex-shrink: 0; border-radius: 16px; background: var(--brand-white);
-    padding: 6px; box-shadow: 0 4px 14px rgba(18, 58, 148, 0.10);
-  }
-  .brand-copy { min-width: 0; }
-  .brand-copy h1 {
-    margin: 0; font-size: clamp(1.25rem, 2.2vw, 2.1rem); line-height: 1.2; color: var(--brand-blue-deep);
-  }
-  .brand-copy p { margin: 6px 0 0; color: #515a69; font-size: 0.95rem; }
-  .header-contacts {
-    display: flex; flex-direction: column; align-items: flex-end; gap: 6px; color: var(--brand-blue-deep); font-weight: 600; font-size: 0.92rem;
-  }
-  .header-contacts .phone-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
-  .header-contacts a { color: var(--brand-blue-deep); }
-  .whatsapp-float {
-    position: fixed; left: 18px; top: 50%; transform: translateY(-50%); z-index: 999; background: #25d366; color: #fff; border-radius: 999px;
-    padding: 12px 16px; font-weight: 700; box-shadow: 0 10px 24px rgba(37, 211, 102, 0.35); display: flex; align-items: center; gap: 8px;
-  }
-  .whatsapp-float::before { content: "WhatsApp"; }
-  .site-footer {
-    background: var(--brand-blue-deep); color: var(--brand-white); padding: 26px 20px 18px; margin-top: 0;
-  }
-  .footer-inner {
-    max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 28px; align-items: flex-start;
-  }
-  .footer-brand { display: flex; align-items: center; gap: 14px; }
-  .footer-brand img { width: 72px; height: 72px; object-fit: contain; border-radius: 16px; background: var(--brand-white); padding: 6px; }
-  .footer-copy { font-size: 0.95rem; line-height: 1.7; opacity: 0.92; }
-  .footer-title { margin: 0 0 10px; font-size: 1.1rem; color: var(--brand-gold); }
-  .footer-list { margin: 0; padding: 0; list-style: none; line-height: 1.8; font-size: 0.95rem; }
-  @media (max-width: 720px) {
-    .header-inner { padding: 12px 16px; align-items: flex-start; flex-direction: column; }
-    .header-contacts { align-items: flex-start; }
-    .brand-wrap { width: 100%; }
-    .brand-logo { width: 64px; height: 64px; }
-    .whatsapp-float { left: 12px; top: auto; bottom: 18px; transform: none; padding: 10px 12px; }
-    .footer-inner { grid-template-columns: 1fr; }
-  }
-</style>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Discover Hello Kids – Little Legends, a Montessori-inspired preschool in Gundlapochampally focused on hands-on learning, independence, confidence and holistic early childhood development.">
+  <title>About Hello Kids Little Legends | Montessori Preschool Gundlapochampally</title>
+  <style>
+    :root {
+      --brand-blue: #123a94;
+      --brand-blue-deep: #0d2a6a;
+      --brand-gold: #d4af5a;
+      --brand-purple: #7b5af5;
+      --brand-pink: #ff7aa2;
+      --brand-ivory: #f8f6f1;
+      --brand-white: #ffffff;
+      --brand-cream: #fdfaf4;
+      --brand-text: #1b1b1b;
+      --brand-muted: #536074;
+      --brand-border: rgba(18, 58, 148, 0.14);
+      --soft-blue: #eef3ff;
+      --soft-purple: #f3efff;
+      --soft-pink: #fff1f5;
+      --soft-gold: #fff9ec;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: Arial, Helvetica, sans-serif; background: linear-gradient(180deg, #ffffff 0%, #fffdf9 100%);
+      color: var(--brand-text); overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input { font: inherit; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+    .site-header {
+      position: sticky; top: 0; z-index: 25; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--brand-border); box-shadow: 0 4px 22px rgba(18,58,148,0.06);
+    }
+    .header-inner {
+      max-width: 1200px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    }
+    .brand-wrap {
+      display: flex; align-items: center; gap: 16px; min-width: 0; flex: 1;
+    }
+    .brand-logo {
+      width: 86px; height: 86px; object-fit: contain; flex-shrink: 0; border-radius: 18px; background: var(--brand-white);
+      padding: 8px; border: 1px solid rgba(18,58,148,0.08); box-shadow: 0 10px 22px rgba(18,58,148,0.08);
+    }
+    .brand-copy { min-width: 0; }
+    .brand-copy h1 {
+      margin: 0; font-size: clamp(1.3rem, 2.2vw, 2.2rem); line-height: 1.2; color: var(--brand-blue-deep);
+      letter-spacing: -0.02em;
+    }
+    .brand-copy p {
+      margin: 6px 0 0; font-size: 0.94rem; color: var(--brand-muted); line-height: 1.5;
+    }
+    .header-meta {
+      display: flex; align-items: center; gap: 18px;
+    }
+    .header-contacts {
+      display: flex; flex-direction: column; align-items: flex-end; gap: 6px; color: var(--brand-blue-deep);
+      font-weight: 700; font-size: 0.9rem; text-align: right;
+    }
+    .header-contacts .phone-row {
+      display: flex; align-items: center; justify-content: flex-end; gap: 8px; flex-wrap: wrap;
+    }
+    .header-contacts a { color: var(--brand-blue-deep); }
+    .cta-header {
+      display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-purple) 100%);
+      color: var(--brand-white); border-radius: 999px; padding: 12px 20px; font-weight: 700; box-shadow: 0 10px 20px rgba(18,58,148,0.18);
+      white-space: nowrap;
+    }
+    .main-nav {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px 18px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 18px; font-size: 0.92rem; font-weight: 700;
+    }
+    .main-nav a {
+      color: var(--brand-blue-deep); padding: 8px 10px; border-radius: 999px; transition: background 0.2s ease, color 0.2s ease;
+    }
+    .main-nav a:hover,
+    .main-nav a:focus-visible {
+      background: rgba(18,58,148,0.06); color: var(--brand-blue); outline: none;
+    }
+    .nav-toggle { display: none; }
+
+    .social-floating-bar {
+      position: fixed; right: 12px; top: 50%; transform: translateY(-50%); z-index: 998;
+      display: flex; flex-direction: column; gap: 12px; background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(18,58,148,0.12); border-radius: 22px; padding: 12px 10px;
+      box-shadow: 0 12px 30px rgba(18,58,148,0.12); backdrop-filter: blur(8px);
+    }
+    .social-floating-bar a {
+      width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 14px; background: var(--brand-white); color: var(--brand-blue); border: 1px solid rgba(18,58,148,0.12);
+      box-shadow: 0 6px 18px rgba(18,58,148,0.08); transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .social-floating-bar a:hover,
+    .social-floating-bar a:focus-visible {
+      transform: translateY(-2px); box-shadow: 0 10px 24px rgba(18,58,148,0.15); outline: none;
+    }
+    .social-floating-bar svg { width: 20px; height: 20px; display: block; fill: currentColor; }
+    .social-floating-bar .facebook { color: #1877f2; }
+    .social-floating-bar .instagram { color: #e1306c; }
+    .social-floating-bar .threads { color: #111827; }
+    .social-floating-bar .youtube { color: #ff0000; }
+
+    .whatsapp-float {
+      position: fixed; left: 24px; bottom: 24px; z-index: 999; width: 58px; height: 58px; display: inline-flex; align-items: center; justify-content: center;
+      background: #25d366; color: #fff; border-radius: 50%; box-shadow: 0 12px 26px rgba(37,211,102,0.34);
+      border: 3px solid rgba(255,255,255,0.7); transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .whatsapp-float:hover,
+    .whatsapp-float:focus-visible {
+      transform: translateY(-2px); box-shadow: 0 16px 30px rgba(37,211,102,0.42); outline: none;
+    }
+    .whatsapp-float svg { width: 28px; height: 28px; display: block; fill: currentColor; }
+
+    .hero {
+      background: radial-gradient(circle at top left, rgba(123,90,245,0.08) 0%, rgba(255,255,255,0) 32%), linear-gradient(180deg, #fffdf9 0%, #f8f7ff 100%);
+      padding: 56px 24px 68px;
+      border-bottom: 1px solid rgba(18,58,148,0.08);
+    }
+    .hero-inner {
+      max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 36px; align-items: center;
+    }
+    .eyebrow {
+      display: inline-block; margin: 0 0 16px; padding: 8px 14px; background: rgba(18,58,148,0.06); color: var(--brand-blue-deep);
+      border-radius: 999px; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    h2 {
+      margin: 0 0 14px; color: var(--brand-blue-deep); font-size: clamp(2.2rem, 4vw, 4rem); line-height: 1.08; letter-spacing: -0.04em;
+    }
+    .hero-copy p {
+      max-width: 600px; margin: 0 0 24px; color: var(--brand-muted); line-height: 1.8; font-size: 1.08rem;
+    }
+    .hero-subtitle {
+      margin: 0 0 12px; color: var(--brand-blue); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.78rem;
+    }
+    .hero-actions {
+      display: flex; flex-wrap: wrap; gap: 14px; margin: 24px 0 0;
+    }
+    .primary-btn, .secondary-btn, .outline-btn {
+      display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; padding: 14px 22px; font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease; border: 1px solid transparent;
+    }
+    .primary-btn {
+      background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-purple) 100%); color: var(--brand-white);
+      box-shadow: 0 12px 24px rgba(18,58,148,0.18);
+    }
+    .secondary-btn {
+      background: var(--brand-white); color: var(--brand-blue-deep); border-color: rgba(18,58,148,0.12);
+      box-shadow: 0 10px 18px rgba(18,58,148,0.08);
+    }
+    .outline-btn {
+      background: transparent; color: var(--brand-blue-deep); border-color: rgba(18,58,148,0.18);
+    }
+    .primary-btn:hover,
+    .primary-btn:focus-visible,
+    .secondary-btn:hover,
+    .secondary-btn:focus-visible,
+    .outline-btn:hover,
+    .outline-btn:focus-visible {
+      transform: translateY(-1px); outline: none;
+    }
+    .hero-visual {
+      position: relative; display: flex; justify-content: center; align-items: center;
+    }
+    .hero-visual-card {
+      position: relative; width: min(100%, 500px); background: var(--brand-white); border: 1px solid rgba(18,58,148,0.08);
+      border-radius: 30px; box-shadow: 0 24px 48px rgba(18,58,148,0.12); padding: 18px;
+    }
+    .hero-visual-card img {
+      width: 100%; height: 430px; object-fit: cover; border-radius: 22px; display: block;
+    }
+    .stat-badge {
+      position: absolute; right: -12px; bottom: 28px; background: var(--brand-white); border: 1px solid rgba(18,58,148,0.08);
+      border-radius: 20px; padding: 16px 18px; box-shadow: 0 18px 34px rgba(18,58,148,0.12);
+    }
+    .stat-badge strong { display: block; font-size: 1.5rem; color: var(--brand-blue-deep); }
+    .stat-badge span { color: var(--brand-muted); font-size: 0.8rem; }
+    .section {
+      padding: 82px 24px;
+    }
+    .section-inner {
+      max-width: 1200px; margin: 0 auto;
+    }
+    .section-head {
+      margin: 0 auto 32px; text-align: center; max-width: 760px;
+    }
+    .section-head h3 {
+      margin: 0 0 12px; color: var(--brand-blue-deep); font-size: clamp(1.9rem, 3vw, 3rem); line-height: 1.15;
+    }
+    .section-head p {
+      margin: 0; color: var(--brand-muted); font-size: 1.04rem; line-height: 1.8;
+    }
+    .about-hero {
+      background: linear-gradient(180deg, #fffdfd 0%, #f7f4ff 100%);
+      border-bottom: 1px solid rgba(18,58,148,0.08);
+    }
+    .about-hero-inner {
+      max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 32px; padding: 54px 24px 60px; align-items: center;
+    }
+    .about-copy h2 {
+      margin: 0 0 18px; color: var(--brand-blue-deep); font-size: clamp(2.2rem, 4vw, 4rem); line-height: 1.08; letter-spacing: -0.04em;
+    }
+    .about-copy p {
+      margin: 0 0 18px; color: var(--brand-muted); line-height: 1.85; font-size: 1.04rem;
+    }
+    .about-photo-card {
+      background: var(--brand-white); border: 1px solid rgba(18,58,148,0.08); border-radius: 30px; box-shadow: 0 18px 34px rgba(18,58,148,0.08); padding: 16px;
+    }
+    .about-photo-card img {
+      width: 100%; max-height: 470px; object-fit: cover; border-radius: 22px; display: block;
+    }
+    .eyebrow-soft {
+      display: inline-block; padding: 8px 14px; margin: 0 0 14px; background: rgba(123,90,245,0.08); color: var(--brand-blue-deep); border-radius: 999px; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .edu-grid {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 30px; align-items: center;
+    }
+    .edu-copy {
+      color: var(--brand-muted); font-size: 1.08rem; line-height: 1.9;
+    }
+    .edu-copy p { margin: 0 0 18px; }
+    .edu-panel {
+      background: linear-gradient(180deg, #ffffff 0%, #f9f8ff 100%); border: 1px solid rgba(18,58,148,0.08);
+      border-radius: 28px; padding: 28px; box-shadow: 0 18px 34px rgba(18,58,148,0.08);
+    }
+    .edu-bullets {
+      list-style: none; margin: 0; padding: 0; display: grid; gap: 14px;
+    }
+    .edu-bullets li {
+      display: flex; align-items: flex-start; gap: 12px; background: rgba(255,255,255,0.7); border: 1px solid rgba(18,58,148,0.06);
+      border-radius: 16px; padding: 12px 14px;
+    }
+    .edu-bullets .dot {
+      width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-purple) 100%);
+      margin-top: 7px; flex-shrink: 0;
+    }
+
+    .montessori-grid, .program-grid, .feature-grid, .recognition-grid {
+      display: grid; gap: 22px;
+    }
+    .montessori-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+    .feature-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+    .program-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+    .recognition-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .card {
+      background: rgba(255,255,255,0.9); border: 1px solid rgba(18,58,148,0.08); border-radius: 24px; padding: 22px 18px;
+      box-shadow: 0 14px 28px rgba(18,58,148,0.06);
+    }
+    .icon-wrap {
+      width: 52px; height: 52px; display: inline-flex; align-items: center; justify-content: center; border-radius: 16px;
+      background: linear-gradient(135deg, rgba(18,58,148,0.10) 0%, rgba(123,90,245,0.12) 100%); color: var(--brand-blue-deep);
+      font-weight: 700; margin-bottom: 14px;
+    }
+    .card h4 {
+      margin: 0 0 10px; color: var(--brand-blue-deep); font-size: 1.08rem;
+    }
+    .card p {
+      margin: 0; color: var(--brand-muted); line-height: 1.7; font-size: 0.94rem;
+    }
+    .program-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f9f8ff 100%); border: 1px solid rgba(18,58,148,0.08); border-radius: 24px;
+      padding: 22px 18px 18px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 16px 30px rgba(18,58,148,0.06);
+      min-height: 100%;
+    }
+    .program-tag {
+      display: inline-flex; align-self: flex-start; padding: 7px 10px; border-radius: 999px; font-size: 0.72rem; letter-spacing: 0.08em; font-weight: 800; text-transform: uppercase; background: rgba(18,58,148,0.06); color: var(--brand-blue-deep);
+    }
+    .program-card h4 {
+      margin: 0; color: var(--brand-blue-deep); font-size: 1.2rem; line-height: 1.3;
+    }
+    .program-age {
+      color: var(--brand-blue); font-weight: 700; font-size: 0.9rem;
+    }
+    .program-card p {
+      margin: 0; color: var(--brand-muted); line-height: 1.7; font-size: 0.94rem;
+    }
+    .program-card .mini-btn {
+      margin-top: auto; display: inline-flex; align-items: center; justify-content: center; background: rgba(18,58,148,0.06); color: var(--brand-blue-deep); padding: 10px 14px; border-radius: 999px; font-weight: 700; width: fit-content;
+    }
+
+    .school-tour {
+      background: linear-gradient(180deg, #fff 0%, #f7f4ff 100%); border-top: 1px solid rgba(18,58,148,0.08); border-bottom: 1px solid rgba(18,58,148,0.08);
+    }
+    .tour-grid {
+      display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 30px; align-items: center;
+    }
+    .tour-copy p {
+      color: var(--brand-muted); line-height: 1.8; font-size: 1.04rem; margin: 0 0 20px;
+    }
+    .tour-panel {
+      background: var(--brand-white); border: 1px solid rgba(18,58,148,0.08); border-radius: 26px; padding: 12px; box-shadow: 0 18px 34px rgba(18,58,148,0.08);
+    }
+    .tour-panel iframe {
+      width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 18px; display: block; background: #edf3ff;
+    }
+
+    .recognition-card {
+      background: linear-gradient(180deg, #ffffff 0%, #fffaf1 100%); border: 1px solid rgba(18,58,148,0.08); border-radius: 26px; padding: 26px 20px; box-shadow: 0 18px 30px rgba(18,58,148,0.06);
+    }
+    .recognition-card .award-icon {
+      width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(135deg, rgba(212,175,90,0.18) 0%, rgba(18,58,148,0.08) 100%); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; color: var(--brand-blue-deep); margin-bottom: 14px;
+    }
+    .recognition-card h4 { margin: 0 0 10px; color: var(--brand-blue-deep); font-size: 1.2rem; }
+    .recognition-card p { margin: 0; color: var(--brand-muted); line-height: 1.7; }
+
+    .cta-section {
+      background: linear-gradient(180deg, #fff 0%, #f8f7ff 100%); padding: 70px 24px 90px;
+    }
+    .cta-panel {
+      max-width: 1200px; margin: 0 auto; background: linear-gradient(135deg, rgba(18,58,148,0.04) 0%, rgba(123,90,245,0.08) 100%);
+      border: 1px solid rgba(18,58,148,0.08); border-radius: 30px; padding: 42px 24px; text-align: center; box-shadow: 0 20px 38px rgba(18,58,148,0.06);
+    }
+    .cta-panel h3 {
+      margin: 0 0 14px; color: var(--brand-blue-deep); font-size: clamp(2rem, 3vw, 3rem);
+    }
+    .cta-panel p {
+      margin: 0 auto 24px; max-width: 760px; color: var(--brand-muted); line-height: 1.8; font-size: 1.05rem;
+    }
+    .cta-panel .hero-actions { justify-content: center; }
+
+    .site-footer {
+      background: linear-gradient(180deg, #ffffff 0%, #f8f7ff 100%); color: var(--brand-blue-deep); padding: 44px 24px 16px; border-top: 1px solid rgba(18,58,148,0.08);
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr 1.3fr; gap: 28px; align-items: flex-start;
+    }
+    .footer-copy {
+      line-height: 1.7; font-size: 0.96rem; color: var(--brand-muted);
+    }
+    .footer-copy strong {
+      display: block; color: var(--brand-blue-deep); font-size: 1.02rem; margin-bottom: 2px;
+    }
+    .footer-title {
+      margin: 0 0 12px; font-size: 1.05rem; color: var(--brand-blue-deep);
+    }
+    .footer-list {
+      margin: 0; padding: 0; list-style: none; line-height: 1.9; font-size: 0.96rem; color: var(--brand-muted);
+    }
+    .footer-list a { color: var(--brand-blue-deep); }
+    .footer-bottom {
+      max-width: 1200px; margin: 26px auto 0; padding-top: 18px; border-top: 1px solid rgba(18,58,148,0.12);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+      font-size: 0.86rem; color: var(--brand-blue-deep);
+    }
+    .footer-copyright { flex: 1; text-align: left; min-width: 220px; }
+    .footer-designer { margin-left: auto; text-align: right; font-weight: 700; min-width: 150px; }
+
+    @media (max-width: 1100px) {
+      .montessori-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .program-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .feature-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 900px) {
+      .header-inner { flex-wrap: wrap; }
+      .header-meta { width: 100%; justify-content: space-between; }
+      .header-contacts { align-items: flex-start; text-align: left; }
+      .hero-inner, .edu-grid, .tour-grid, .footer-inner { grid-template-columns: 1fr; }
+      .hero-visual-card img { height: 360px; }
+    }
+
+    @media (max-width: 720px) {
+      .site-header { position: static; }
+      .header-inner { padding: 14px 16px; }
+      .header-meta { width: 100%; align-items: flex-start; flex-direction: column; }
+      .brand-wrap { width: 100%; }
+      .brand-logo { width: 72px; height: 72px; }
+      .main-nav {
+        display: none; padding: 0 16px 16px; justify-content: flex-start; background: rgba(255,255,255,0.96);
+      }
+      .main-nav.open { display: flex; }
+      .nav-toggle {
+        display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; border-radius: 12px; border: 1px solid rgba(18,58,148,0.12); background: var(--brand-white); color: var(--brand-blue-deep); box-shadow: 0 6px 14px rgba(18,58,148,0.08);
+      }
+      .social-floating-bar { right: 10px; top: auto; bottom: 90px; transform: none; gap: 8px; padding: 8px; }
+      .social-floating-bar a { width: 40px; height: 40px; border-radius: 12px; }
+      .whatsapp-float { left: 12px; bottom: 14px; width: 52px; height: 52px; }
+      .hero { padding: 42px 16px 54px; }
+      .section { padding: 60px 16px; }
+      .cta-section { padding: 60px 16px 72px; }
+      .main-nav a { width: 100%; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .primary-btn, .secondary-btn, .outline-btn { width: 100%; }
+      .montessori-grid, .program-grid, .feature-grid, .recognition-grid { grid-template-columns: 1fr; }
+      .hero-visual-card img { height: 280px; }
+      .footer-inner, .footer-bottom { padding-left: 0; padding-right: 0; }
+      .footer-bottom { justify-content: center; text-align: center; }
+      .footer-copyright, .footer-designer { text-align: center; }
+      .footer-designer { margin-left: 0; }
+    }
+  </style>
 </head>
 <body>
-<header class="site-header"><div class="header-inner"><div class="brand-wrap"><img src="assets/logo/logo.png" alt="Hello Kids Little Legends" class="brand-logo"><div class="brand-copy"><h1>Hello Kids – Little Legends</h1><p>Where Every Little Mind Grows into a Legend</p></div></div><div class="header-contacts"><div class="phone-row"><a href="tel:7207311717">7207311717</a> / <a href="tel:9014983295">9014983295</a></div><a href="mailto:info@hellokidslittlelegends.in">info@hellokidslittlelegends.in</a></div></div></header>
-<a class="whatsapp-float" href="https://wa.me/917207311717" target="_blank" rel="noopener" aria-label="WhatsApp Hello Kids Little Legends"></a>
-<nav><a href="#about">About</a> | <a href="#programs">Programs</a> | <a href="#contact">Contact</a></nav>
-<section class="hero"><h2>Admissions Open 2026–27</h2><p>Safe, joyful Montessori-inspired preschool in Gundlapochampally.</p></section>
-<section id="about"><h2>About Us</h2><p>We nurture confident, curious learners through hands-on, child-centered education.</p></section>
-<section id="programs"><h2>Programs</h2><ul><li>Playgroup</li><li>Nursery</li><li>LKG</li><li>UKG</li><li>Day Care</li></ul></section>
-<section id="contact"><h2>Contact</h2>
-<p>📍 Opp. Casa Triambak, 1st Floor, Gundlapochampally, Hyderabad – 500014</p>
-<p>📞 7207311717 / 9014983295</p>
-<p>✉️ info@hellokidslittlelegends.in</p>
-<p>📅 Mon – Fri: 9:00 AM – 3:00 PM</p>
-</section>
-<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><img src="assets/logo/logo.png" alt="Hello Kids Little Legends"><div class="footer-copy"><strong>Hello Kids – Little Legends</strong><br>Where Every Little Mind Grows into a Legend</div></div><div><h3 class="footer-title">Contact Us</h3><ul class="footer-list"><li>7207311717 / 9014983295</li><li>info@hellokidslittlelegends.in</li></ul></div><div><h3 class="footer-title">Visit Us</h3><ul class="footer-list"><li>Mon – Fri: 9:00 AM – 3:00 PM</li></ul></div></div></footer>
-<script src="js/script.js"></script>
-</body></html>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-wrap">
+        <img src="assets/logo/logo.png" alt="Hello Kids – Little Legends logo" class="brand-logo">
+        <div class="brand-copy">
+          <h1>Hello Kids – Little Legends</h1>
+          <p>Where Every Little Mind Grows into a Legend</p>
+        </div>
+      </div>
+      <div class="header-meta">
+        <div class="header-contacts" aria-label="Contact information">
+          <div class="phone-row">
+            <a href="tel:7207311717">7207311717</a>
+            <span>/</span>
+            <a href="tel:9014983295">9014983295</a>
+          </div>
+          <a href="mailto:info@hellokidslittlelegends.in">info@hellokidslittlelegends.in</a>
+        </div>
+        <a href="#contact" class="cta-header">BOOK A VISIT</a>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#montessori">Montessori</a>
+      <a href="#team">Our Team</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#awards">Awards &amp; Recognition</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="social-floating-bar" aria-label="Follow us on social media">
+    <a class="facebook" href="https://www.facebook.com/profile.php?id=61578971171088" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3h-3.1V7.5c0-.9.3-1.5 1.6-1.5H17V3.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V11H8v3h2.3v8h3.2Z"/></svg>
+    </a>
+    <a class="instagram" href="https://www.instagram.com/hk_little_legends/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.2A4.8 4.8 0 1 1 7.2 12 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2Zm5.1-3.4a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z"/></svg>
+    </a>
+    <a class="threads" href="https://www.threads.com/@hk_little_legends?xmt=AQG0Ik0RwcHGYx5Uv5da2POHa2jY2JJ61jZjWmhfrkKuBj4" target="_blank" rel="noopener noreferrer" aria-label="Threads">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 9.2c-.8-.5-1.7-.8-2.8-.9 1.4-.8 2.3-2.1 2.3-3.6 0-2.4-1.9-4.1-4.8-4.1-3.2 0-5.3 2.1-5.8 5.4-.1.8-.1 1.7-.1 2.6 0 3.1 1.9 5.1 4.7 5.1 1.5 0 2.9-.5 3.9-1.4.8-.7 1.4-1.6 1.9-2.6l-2.4-1.1c-.3.7-.8 1.2-1.4 1.5-.7.4-1.6.6-2.5.6-1.7 0-2.9-1.1-2.9-2.9 0-1.6 1.1-2.8 2.7-2.8.8 0 1.5.3 2 .9l2-1.7Zm-5.4 4.5c.7 0 1.3-.1 1.8-.4.7-.4 1.2-1.1 1.5-2l-1.4-.7c-.3.4-.7.7-1.2.9-.6.2-1.3.3-2.1.3-1.1 0-1.8-.5-1.8-1.4 0-.9.7-1.3 1.9-1.3.8 0 1.5.1 2.1.4l1.2-2.1c-.8-.5-1.9-.8-3.3-.8-2.2 0-3.8 1.2-3.8 3.2 0 2.1 1.7 3.3 4.1 3.3Z"/></svg>
+    </a>
+    <a class="youtube" href="https://www.youtube.com/channel/UCmC_3t85uESQx-SMgxWK8xQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube channel">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.5.4A3 3 0 0 0 2.4 7.2 31.1 31.1 0 0 0 2 12a31.1 31.1 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.7.4 7.5.4 7.5.4s5.8 0 7.5-.4a3 3 0 0 0 2.1-2.1A31.1 31.1 0 0 0 22 12a31.1 31.1 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z"/></svg>
+    </a>
+  </div>
+
+  <a class="whatsapp-float" href="https://wa.me/917207311717" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" title="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.6 11.6 0 0 0 3.7 18.2L2.5 22l3.9-1a11.4 11.4 0 0 0 5.5 1.4h.1a11.6 11.6 0 0 0 8.5-19.9Zm-8.5 17.1h-.1a9.4 9.4 0 0 1-4.8-1.3l-.3-.2-2.3.6.6-2.2-.2-.3A9.4 9.4 0 1 1 12 20.6Zm5.1-7.1c-.3-.1-1.7-.8-1.9-.9s-.4-.1-.6.1c-.2.2-.8.9-.9 1.1-.2.2-.3.3-.6.1-.3-.1-1.2-.4-2.2-1.3-.8-.7-1.4-1.6-1.5-1.8-.2-.2 0-.3.1-.4.1-.1.2-.3.3-.4.1-.1.1-.3.2-.4.1-.1.1-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 3.9 3.4 2.3.9 2.3.6 2.7.6.4 0 1.3-.5 1.5-1 .2-.5.2-.9.1-1Z"/></svg>
+  </a>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Hello Kids – Little Legends</p>
+          <h2>Little Minds, Big Dreams, Bright Futures!</h2>
+          <p class="hero-subtitle">A nurturing Montessori-inspired preschool where children learn through exploration, independence, creativity and meaningful experiences.</p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#programs">Explore Our Programs</a>
+            <a class="secondary-btn" href="#contact">Book a School Visit</a>
+          </div>
+          <div class="hero-actions">
+            <a class="outline-btn" href="https://www.youtube.com/watch?v=2uZJ7YvXsMI" target="_blank" rel="noopener noreferrer">Watch Our School Tour</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="School exterior illustration">
+          <div class="hero-visual-card">
+            <img src="assets/images/school-front.png" alt="Hello Kids – Little Legends school front view">
+            <div class="stat-badge">
+              <strong>2026</strong>
+              <span>Admissions Open</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-hero" id="about">
+      <div class="about-hero-inner">
+        <div class="about-copy">
+          <p class="eyebrow-soft">About</p>
+          <h2>ABOUT HELLO KIDS – LITTLE LEGENDS</h2>
+          <p><strong>Where Every Little Mind Grows into a Legend</strong></p>
+          <p>At Hello Kids – Little Legends, we believe the early years form an important foundation for a child’s lifelong learning journey. Our environment is designed to encourage children to explore, discover, communicate, practise independence and develop confidence through meaningful hands-on experiences.</p>
+          <p>We strive to create a safe, welcoming and stimulating learning environment where every child is respected as an individual learner. Our approach brings together Montessori-inspired experiences, age-appropriate activities, caring educators and meaningful parent partnership.</p>
+          <p>We nurture confident, curious learners through hands-on, child-centred education.</p>
+        </div>
+        <div class="about-photo-card">
+          <img src="assets/gallery/Image.1.jpeg" alt="Montessori classroom with young children engaged in learning activities">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="power-of-early-learning">
+      <div class="section-inner">
+        <div class="section-head">
+          <h3>The Power of Early Childhood Education</h3>
+        </div>
+        <div class="edu-grid">
+          <div class="edu-copy">
+            <p>Early childhood education (ECE) plays a vital role in children’s development. It provides a strong foundation for life, academic, social, and emotional growth.</p>
+            <p>During these formative years, a child’s brain is like a sponge, absorbing new information and experiences at a remarkable rate. This critical period of brain development brings rapid cognitive, emotional, and physical growth for a child. It paves the way for greater learning capabilities.</p>
+            <p>Hello Kids programs and our expert educators prove invaluable during this critical time, offering structured, creative environments to nurture the developing child.</p>
+          </div>
+          <div class="edu-panel">
+            <ul class="edu-bullets">
+              <li><span class="dot" aria-hidden="true"></span><span><strong>Strong foundations</strong><br>Support confidence, curiosity and meaningful learning from the earliest years.</span></li>
+              <li><span class="dot" aria-hidden="true"></span><span><strong>Social and emotional growth</strong><br>Encourage resilience, empathy, communication and self-regulation.</span></li>
+              <li><span class="dot" aria-hidden="true"></span><span><strong>Creative, active learning</strong><br>Blend guided experiences and discovery to build joyful learning habits.</span></li>
+              <li><span class="dot" aria-hidden="true"></span><span><strong>Expert guidance</strong><br>Our educators create warm, stimulating spaces where every child feels seen.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="educational-approach">
+      <div class="section-inner">
+        <div class="section-head">
+          <h3>Our Educational Approach</h3>
+        </div>
+        <div class="feature-grid">
+          <article class="card"><div class="icon-wrap">01</div><h4>Hands-on Learning</h4><p>Children learn through active exploration, movement and practical engagement with the world around them.</p></article>
+          <article class="card"><div class="icon-wrap">02</div><h4>Child-centred Experiences</h4><p>Each child is respected as an individual learner with their own pace, interests and strengths.</p></article>
+          <article class="card"><div class="icon-wrap">03</div><h4>Independence</h4><p>Young learners are encouraged to make choices, complete tasks and build confidence in daily routines.</p></article>
+          <article class="card"><div class="icon-wrap">04</div><h4>Concentration</h4><p>Purposeful activities support focus, repetition and deep engagement over time.</p></article>
+          <article class="card"><div class="icon-wrap">05</div><h4>Curiosity</h4><p>Questions, discovery and experimentation are welcomed as part of natural learning.</p></article>
+          <article class="card"><div class="icon-wrap">06</div><h4>Practical Life</h4><p>Everyday experiences help children develop coordination, order and responsibility.</p></article>
+          <article class="card"><div class="icon-wrap">07</div><h4>Communication</h4><p>Language-rich learning encourages expression, listening and confident social connection.</p></article>
+          <article class="card"><div class="icon-wrap">08</div><h4>Social Development</h4><p>Positive interactions help children build empathy, cooperation and respectful relationships.</p></article>
+          <article class="card"><div class="icon-wrap">09</div><h4>Emotional Development</h4><p>Children grow in confidence through warm guidance, routines and meaningful encouragement.</p></article>
+          <article class="card"><div class="icon-wrap">10</div><h4>Creative Expression</h4><p>Art, movement and imagination allow children to explore ideas and communicate their thinking.</p></article>
+          <article class="card"><div class="icon-wrap">11</div><h4>Age-appropriate Foundations</h4><p>Learning is paced thoughtfully so children build readiness and confidence at each stage.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="montessori">
+      <div class="section-inner">
+        <div class="section-head">
+          <h3>Our Montessori Philosophy</h3>
+          <p>Children learn best when they are given meaningful opportunities to explore, practise, discover and develop independence.</p>
+        </div>
+        <div class="montessori-grid">
+          <article class="card">
+            <div class="icon-wrap">P</div>
+            <h4>Practical Life</h4>
+            <p>Activities encourage independence, coordination, order, concentration and everyday-life skills.</p>
+          </article>
+          <article class="card">
+            <div class="icon-wrap">S</div>
+            <h4>Sensorial Learning</h4>
+            <p>Hands-on experiences help children observe, compare, classify and understand their surroundings.</p>
+          </article>
+          <article class="card">
+            <div class="icon-wrap">L</div>
+            <h4>Language</h4>
+            <p>Phonics, vocabulary, communication, storytelling, early writing and reading readiness.</p>
+          </article>
+          <article class="card">
+            <div class="icon-wrap">M</div>
+            <h4>Mathematics</h4>
+            <p>Concrete experiences support number sense, sequencing, counting and early mathematical thinking.</p>
+          </article>
+          <article class="card">
+            <div class="icon-wrap">C</div>
+            <h4>Cultural Learning</h4>
+            <p>Age-appropriate exploration introduces children to their world with curiosity and awareness.</p>
+          </article>
+          <article class="card">
+            <div class="icon-wrap">G</div>
+            <h4>Grace &amp; Courtesy</h4>
+            <p>Respectful communication, classroom manners, sharing, cooperation and consideration for others.</p>
+          </article>
+          <article class="card">
+            <div class="icon-wrap">I</div>
+            <h4>Independence</h4>
+            <p>Children are given opportunities to make choices, complete tasks and build self-confidence.</p>
+          </article>
+          <article class="card">
+            <div class="icon-wrap">D</div>
+            <h4>Concentration &amp; Discovery</h4>
+            <p>Purposeful activities invite children to focus, repeat, explore and learn at their own pace.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="prepared-environment">
+      <div class="section-inner">
+        <div class="section-head">
+          <h3>The Prepared Learning Environment</h3>
+        </div>
+        <div class="edu-grid">
+          <div class="edu-copy">
+            <p>An organised, welcoming learning environment helps children feel secure, supported and ready to explore. At Hello Kids – Little Legends, our classrooms are designed to offer accessible materials, clear routines and meaningful opportunities for independent participation.</p>
+            <p>We value order, child-friendly spaces, hands-on activities and careful teacher guidance. Observation and individual attention allow educators to respond thoughtfully to each child’s developmental needs while encouraging confident participation in learning.</p>
+          </div>
+          <div class="edu-panel">
+            <ul class="edu-bullets">
+              <li><span class="dot" aria-hidden="true"></span><span><strong>Accessible learning materials</strong><br>Carefully chosen resources invite exploration and meaningful engagement.</span></li>
+              <li><span class="dot" aria-hidden="true"></span><span><strong>Order and organisation</strong><br>Structured spaces encourage calm, confidence and purposeful routines.</span></li>
+              <li><span class="dot" aria-hidden="true"></span><span><strong>Independent exploration</strong><br>Children learn through active participation and guided freedom.</span></li>
+              <li><span class="dot" aria-hidden="true"></span><span><strong>Teacher guidance</strong><br>Observation helps educators support each child with warmth and intention.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="educators">
+      <div class="section-inner">
+        <div class="section-head">
+          <h3>Educators Who Guide, Observe &amp; Encourage</h3>
+        </div>
+        <div class="edu-copy" style="max-width: 900px; margin: 0 auto; text-align: center;">
+          <p>Our educators support children through observation, guidance, encouragement and meaningful interactions. They create a warm environment where every child feels seen, respected and confident in their learning journey.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="leadership">
+      <div class="section-inner">
+        <div class="section-head">
+          <h3>Leadership at Hello Kids – Little Legends</h3>
+        </div>
+        <div class="edu-grid">
+          <div class="about-photo-card">
+            <img src="assets/staff/director-deepthi.png" alt="Sv. Deepthi, Center Director at Hello Kids Little Legends">
+          </div>
+          <div class="edu-copy">
+            <p><strong>Center Director: Sv. Deepthi</strong></p>
+            <p><strong>Education:</strong> M.Com</p>
+            <p><strong>Role:</strong> Center Director at Hello Kids – India since December 2024.</p>
+            <p>As Center Director at Hello Kids – India since December 2024, I focus on creating organised, child-centred learning environments that support confident growth and meaningful early education experiences. My background in program management, team coordination and operational leadership helps shape a preschool culture built on structure, care and partnership with families.</p>
+            <p>My work continues to centre on building strong educational routines, supporting educator collaboration and creating a learning environment where children feel secure, encouraged and inspired to explore. I also value technology-enabled innovation in early childhood education, using it thoughtfully to strengthen communication, learning organisation and parent engagement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="director-message">
+      <div class="section-inner">
+        <div class="edu-panel" style="max-width: 940px; margin: 0 auto;">
+          <p class="eyebrow-soft">A Message from Our Center Director</p>
+          <blockquote style="margin:0; font-size: clamp(1.2rem, 2vw, 1.8rem); line-height: 1.7; color: var(--brand-blue-deep); font-weight: 600;">
+            “Every child deserves an environment where curiosity is welcomed, independence is encouraged and learning becomes a joyful journey. At Hello Kids – Little Legends, our goal is to create meaningful early learning experiences that help children develop confidence, communication, independence and a love for learning.”
+          </blockquote>
+          <p style="margin: 18px 0 0; color: var(--brand-muted); font-weight: 700;">Sv. Deepthi<br>Center Director<br>Hello Kids – Little Legends</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why-montessori">
+      <div class="section-inner">
+        <div class="section-head">
+          <h3>Why Montessori-Inspired Learning?</h3>
+        </div>
+        <div class="feature-grid">
+          <article class="card"><div class="icon-wrap">01</div><h4>Learning by Doing</h4><p>Children engage with hands-on learning experiences that make ideas real and memorable.</p></article>
+          <article class="card"><div class="icon-wrap">02</div><h4>Building Independence</h4><p>Children are encouraged to participate and complete age-appropriate tasks with confidence.</p></article>
+          <article class="card"><div class="icon-wrap">03</div><h4>Developing Concentration</h4><p>Purposeful activities encourage focus, repetition and meaningful engagement.</p></article>
+          <article class="card"><div class="icon-wrap">04</div><h4>Respecting Individuality</h4><p>Children are supported according to their own developmental needs, pace and interests.</p></article>
+          <article class="card"><div class="icon-wrap">05</div><h4>Real-world Skills</h4><p>Practical experiences help children connect learning with everyday life.</p></article>
+          <article class="card"><div class="icon-wrap">06</div><h4>Joyful Discovery</h4><p>Children are encouraged to explore, question and develop a natural love for learning.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="association">
+      <div class="section-inner">
+        <div class="section-head">
+          <h3>Montessori Association / Recognition</h3>
+        </div>
+        <div class="edu-panel" style="max-width: 900px; margin: 0 auto;">
+          <p>We are guided by Montessori-inspired principles and value a learning community that respects child development, purposeful learning and thoughtful classroom practice. The American Montessori Society remains a meaningful reference point for the broader Montessori tradition that shapes our educational philosophy.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="parent-partnership">
+      <div class="section-inner">
+        <div class="section-head">
+          <h3>Growing Together With Parents</h3>
+        </div>
+        <div class="edu-grid">
+          <div class="edu-copy">
+            <p>Meaningful early childhood education works best when school and parents communicate openly, share observations and work together for the child’s growth. We believe in building a respectful partnership with families through regular communication, parent involvement and thoughtful progress conversations.</p>
+            <p>Our approach supports shared learning, consistent encouragement and a stronger sense of belonging for every child. When families and educators collaborate, children feel more secure and supported as they grow, learn and develop.</p>
+          </div>
+          <div class="edu-panel">
+            <ul class="edu-bullets">
+              <li><span class="dot" aria-hidden="true"></span><span><strong>Regular communication</strong><br>Open updates help families stay connected to classroom learning.</span></li>
+              <li><span class="dot" aria-hidden="true"></span><span><strong>Parent involvement</strong><br>Shared experiences strengthen support at home and at school.</span></li>
+              <li><span class="dot" aria-hidden="true"></span><span><strong>Progress conversations</strong><br>Thoughtful discussions help us understand each child’s growth journey.</span></li>
+              <li><span class="dot" aria-hidden="true"></span><span><strong>Shared learning support</strong><br>Consistency across environments helps children feel confident and secure.</span></li>
+            </ul>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top:26px;">
+          <a class="primary-btn" href="#contact">Partner With Us</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="discover-difference">
+      <div class="cta-panel">
+        <h3>Discover the Little Legends Difference</h3>
+        <p>Come and experience our Montessori-inspired learning environment and discover how we nurture confident, curious and independent young learners.</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#contact">BOOK A SCHOOL VISIT</a>
+          <a class="secondary-btn" href="#programs">EXPLORE OUR PROGRAMS</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        <strong>Hello Kids – Little Legends</strong>
+        Where Every Little Mind Grows into a Legend
+      </div>
+      <div>
+        <h3 class="footer-title">Contact</h3>
+        <ul class="footer-list">
+          <li><a href="tel:7207311717">7207311717</a> / <a href="tel:9014983295">9014983295</a></li>
+          <li><a href="mailto:info@hellokidslittlelegends.in">info@hellokidslittlelegends.in</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-title">Visit Us</h3>
+        <ul class="footer-list">
+          <li>H-No.4-179/5, 1st floor, situated at Near Aparna Kanopy villas Exit Gate, Gundlapochampally Village &amp; Municipality, Landmark: Opp:Casa Triambak., Telangana, Hyderabad, India 500014</li>
+          <li>Mon – Fri: 9:00 AM – 3:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copyright">Copyright @2026 HELLOKIDSLITTLELEGENDS.ALL RIGHTS RESERVED</div>
+      <div class="footer-designer">Designed by AHANA</div>
+    </div>
+  </footer>
+
+  <script>
+    const toggleButton = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.main-nav');
+    if (toggleButton && nav) {
+      toggleButton.addEventListener('click', function () {
+        const isOpen = nav.classList.toggle('open');
+        toggleButton.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+  </script>
+</body>
+</html>
