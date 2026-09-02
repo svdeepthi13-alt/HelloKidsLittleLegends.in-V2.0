@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hello Kids – Little Legends</title>
+<style>
+  :root {
+    --brand-blue: #123a94;
+    --brand-blue-deep: #0d2a6a;
+    --brand-gold: #d4af5a;
+    --brand-ivory: #f8f6f1;
+    --brand-white: #ffffff;
+    --brand-text: #1b1b1b;
+    --brand-border: rgba(18, 58, 148, 0.14);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #ffffff; color: var(--brand-text); }
+  a { color: inherit; text-decoration: none; }
+  .site-header {
+    background: linear-gradient(180deg, var(--brand-ivory) 0%, var(--brand-white) 100%);
+    border-bottom: 1px solid var(--brand-border);
+    box-shadow: 0 2px 10px rgba(13, 42, 106, 0.06);
+  }
+  .header-inner {
+    max-width: 1200px; margin: 0 auto; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  }
+  .brand-wrap { display: flex; align-items: center; gap: 14px; min-width: 0; }
+  .brand-logo {
+    width: 78px; height: 78px; object-fit: contain; flex-shrink: 0; border-radius: 16px; background: var(--brand-white);
+    padding: 6px; box-shadow: 0 4px 14px rgba(18, 58, 148, 0.10);
+  }
+  .brand-copy { min-width: 0; }
+  .brand-copy h1 {
+    margin: 0; font-size: clamp(1.25rem, 2.2vw, 2.1rem); line-height: 1.2; color: var(--brand-blue-deep);
+  }
+  .brand-copy p { margin: 6px 0 0; color: #515a69; font-size: 0.95rem; }
+  .header-contacts {
+    display: flex; flex-direction: column; align-items: flex-end; gap: 6px; color: var(--brand-blue-deep); font-weight: 600; font-size: 0.92rem;
+  }
+  .header-contacts .phone-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+  .header-contacts a { color: var(--brand-blue-deep); }
+  .whatsapp-float {
+    position: fixed; left: 18px; top: 50%; transform: translateY(-50%); z-index: 999; background: #25d366; color: #fff; border-radius: 999px;
+    padding: 12px 16px; font-weight: 700; box-shadow: 0 10px 24px rgba(37, 211, 102, 0.35); display: flex; align-items: center; gap: 8px;
+  }
+  .whatsapp-float::before { content: "WhatsApp"; }
+  .site-footer {
+    background: var(--brand-blue-deep); color: var(--brand-white); padding: 26px 20px 18px; margin-top: 0;
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 28px; align-items: flex-start;
+  }
+  .footer-brand { display: flex; align-items: center; gap: 14px; }
+  .footer-brand img { width: 72px; height: 72px; object-fit: contain; border-radius: 16px; background: var(--brand-white); padding: 6px; }
+  .footer-copy { font-size: 0.95rem; line-height: 1.7; opacity: 0.92; }
+  .footer-title { margin: 0 0 10px; font-size: 1.1rem; color: var(--brand-gold); }
+  .footer-list { margin: 0; padding: 0; list-style: none; line-height: 1.8; font-size: 0.95rem; }
+  @media (max-width: 720px) {
+    .header-inner { padding: 12px 16px; align-items: flex-start; flex-direction: column; }
+    .header-contacts { align-items: flex-start; }
+    .brand-wrap { width: 100%; }
+    .brand-logo { width: 64px; height: 64px; }
+    .whatsapp-float { left: 12px; top: auto; bottom: 18px; transform: none; padding: 10px 12px; }
+    .footer-inner { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header"><div class="header-inner"><div class="brand-wrap"><img src="assets/logo/logo.png" alt="Hello Kids Little Legends" class="brand-logo"><div class="brand-copy"><h1>Hello Kids – Little Legends</h1><p>Where Every Little Mind Grows into a Legend</p></div></div><div class="header-contacts"><div class="phone-row"><a href="tel:7207311717">7207311717</a> / <a href="tel:9014983295">9014983295</a></div><a href="mailto:info@hellokidslittlelegends.in">info@hellokidslittlelegends.in</a></div></div></header>
+<a class="whatsapp-float" href="https://wa.me/917207311717" target="_blank" rel="noopener" aria-label="WhatsApp Hello Kids Little Legends"></a>
+<nav><a href="#about">About</a> | <a href="#programs">Programs</a> | <a href="#contact">Contact</a></nav>
+<section class="hero"><h2>Admissions Open 2026–27</h2><p>Safe, joyful Montessori-inspired preschool in Gundlapochampally.</p></section>
+<section id="about"><h2>About Us</h2><p>We nurture confident, curious learners through hands-on, child-centered education.</p></section>
+<section id="programs"><h2>Programs</h2><ul><li>Playgroup</li><li>Nursery</li><li>LKG</li><li>UKG</li><li>Day Care</li></ul></section>
+<section id="contact"><h2>Contact</h2>
+<p>📍 Opp. Casa Triambak, 1st Floor, Gundlapochampally, Hyderabad – 500014</p>
+<p>📞 7207311717 / 9014983295</p>
+<p>✉️ info@hellokidslittlelegends.in</p>
+<p>📅 Mon – Fri: 9:00 AM – 3:00 PM</p>
+</section>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-brand"><img src="assets/logo/logo.png" alt="Hello Kids Little Legends"><div class="footer-copy"><strong>Hello Kids – Little Legends</strong><br>Where Every Little Mind Grows into a Legend</div></div><div><h3 class="footer-title">Contact Us</h3><ul class="footer-list"><li>7207311717 / 9014983295</li><li>info@hellokidslittlelegends.in</li></ul></div><div><h3 class="footer-title">Visit Us</h3><ul class="footer-list"><li>Mon – Fri: 9:00 AM – 3:00 PM</li></ul></div></div></footer>
+<script src="js/script.js"></script>
+</body></html>
